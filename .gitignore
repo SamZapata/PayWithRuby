@@ -1,0 +1,32 @@
+# Env — keep .env.example tracked, ignore real secrets
+.env
+.env.local
+.env.*.local
+
+# Bundler
+.bundle/
+vendor/bundle/
+vendor/cache/
+
+# Logs / tmp / pids / sockets
+log/
+tmp/
+*.log
+*.pid
+*.sock
+
+# RSpec / coverage
+coverage/
+.rspec_status
+spec/examples.txt
+
+# DB dumps (avoid leaking data)
+*.dump
+dump*.sql
+
+# OS / editors
+.DS_Store
+*.swp
+*~
+.vscode/
+.idea/

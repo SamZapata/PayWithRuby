@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:16
+    # Loads .env into the container env (optional, Postgres image reads POSTGRES_* from environment)
+    env_file:
+      - .env
+    environment:
+      # ${VAR:-default} = use .env value if present, else default after :-
+      # Docker Compose loads .env in this same folder automatically for interpolation.
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
