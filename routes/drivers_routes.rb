@@ -3,6 +3,10 @@
 # HTTP mapping for drivers. No business logic (see AGENTS.md §5).
 
 class App
+  before '/api/v1/drivers*' do
+    require_auth! unless request.request_method == 'GET'
+  end
+
   get '/api/v1/drivers' do
     status_code, body = DriversController.index(status: params[:status] || params['status'])
     render_result(status_code, body)

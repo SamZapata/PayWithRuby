@@ -4,6 +4,10 @@
 # P1 note: Services skipped for pure CRUD (no business rules to orchestrate).
 
 class App
+  before '/api/v1/riders*' do
+    require_auth! unless request.request_method == 'GET'
+  end
+
   helpers do
     def json_attrs
       if request.media_type == 'application/json'
