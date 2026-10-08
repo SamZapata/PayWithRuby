@@ -41,22 +41,22 @@ class App
   end
 
   post '/api/v1/riders' do
-    status_code, body = RidersController.create(json_attrs)
+    status_code, body = RidersController.create(json_attrs, current_user)
     render_result(status_code, body)
   end
 
   put '/api/v1/riders/:id' do
-    status_code, body = RidersController.update(params[:id], json_attrs)
+    status_code, body = RidersController.update(params[:id], json_attrs, current_user)
     render_result(status_code, body)
   end
 
   patch '/api/v1/riders/:id' do
-    status_code, body = RidersController.update(params[:id], json_attrs)
+    status_code, body = RidersController.update(params[:id], json_attrs, current_user)
     render_result(status_code, body)
   end
 
   delete '/api/v1/riders/:id' do
-    status_code, body = RidersController.destroy(params[:id])
+    status_code, body = RidersController.destroy(params[:id], current_user)
     render_result(status_code, body)
   end
 end

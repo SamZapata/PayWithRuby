@@ -16,6 +16,10 @@ class RiderRepository
     Rider[id]
   end
 
+  def self.find_by_user(user_id)
+    Rider.where(user_id: user_id).first
+  end
+
   def self.create(attrs)
     Rider.create(symbolize(attrs))
   end

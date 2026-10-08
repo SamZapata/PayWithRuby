@@ -6,6 +6,7 @@ module DriverSerializer
   def self.to_h(driver)
     {
       id: driver.id,
+      user_id: driver.user_id,
       name: driver.name,
       email: driver.email,
       phone: driver.phone,

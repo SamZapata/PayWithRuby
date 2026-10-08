@@ -6,6 +6,7 @@ module RiderSerializer
   def self.to_h(rider)
     {
       id: rider.id,
+      user_id: rider.user_id,
       name: rider.name,
       email: rider.email,
       phone: rider.phone,

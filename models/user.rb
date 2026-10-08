@@ -7,6 +7,9 @@ class User < Sequel::Model(:users)
   plugin :validation_helpers
   plugin :timestamps, update_on_create: true
 
+  one_to_one :rider, key: :user_id
+  one_to_one :driver, key: :user_id
+
   def validate
     super
     validates_presence %i[email password_hash]

@@ -15,6 +15,10 @@ class DriverRepository
     Driver[id]
   end
 
+  def self.find_by_user(user_id)
+    Driver.where(user_id: user_id).first
+  end
+
   def self.create(attrs)
     Driver.create(symbolize(attrs))
   end

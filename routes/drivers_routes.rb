@@ -18,22 +18,22 @@ class App
   end
 
   post '/api/v1/drivers' do
-    status_code, body = DriversController.create(json_attrs)
+    status_code, body = DriversController.create(json_attrs, current_user)
     render_result(status_code, body)
   end
 
   put '/api/v1/drivers/:id' do
-    status_code, body = DriversController.update(params[:id], json_attrs)
+    status_code, body = DriversController.update(params[:id], json_attrs, current_user)
     render_result(status_code, body)
   end
 
   patch '/api/v1/drivers/:id' do
-    status_code, body = DriversController.update(params[:id], json_attrs)
+    status_code, body = DriversController.update(params[:id], json_attrs, current_user)
     render_result(status_code, body)
   end
 
   delete '/api/v1/drivers/:id' do
-    status_code, body = DriversController.destroy(params[:id])
+    status_code, body = DriversController.destroy(params[:id], current_user)
     render_result(status_code, body)
   end
 end
